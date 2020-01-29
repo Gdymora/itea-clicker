@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'itea-game';
+  
+  constructor() {
+    this.stage ='start'
+   }
+  stage: string ;
+
+  changeStet(game): string{
+          
+    return this.stage = game;
+}
 }
