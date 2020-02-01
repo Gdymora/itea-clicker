@@ -5,5 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  
+  private name: string;
+
+  getName(): string {
+          
+    return this.name;
+}
+addDataName(namegame: string){
+      
+    this.name = namegame;
+}
+
 }

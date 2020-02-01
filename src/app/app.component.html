@@ -3,11 +3,22 @@
 </app-header>
 
 <p>stage {{stage}}</p>
-<app-login (stageFinish) = "addLastName()"
+
+
+<app-login (stageLogin) = "stageLogin('game')"
    *ngIf="stage == 'start'"
 ></app-login>
-<!--
-<app-layout-start *ngIf="stage == 'game'"></app-layout-start>
-<app-layout-finish (stageFinish)= "changeStet($event)" 
+
+<app-layout-start (onChanged)="onChanged($event)"
+(onStartTimer)="onStartTimer($event)"
+   *ngIf="stage == 'game'" 
+   [clicks] = "clicks"
+   [stage] = "stage"
+   [timeLeft] = "timeLeft"
+   
+>
+</app-layout-start>
+
+<!--<app-layout-finish (stageFinish)= "changeStet($event)" 
 *ngIf="stage == 'finish'"></app-layout-finish>
 -->
