@@ -10,7 +10,8 @@ export class LayoutStartComponent{
   @Input() user: string;  
   @Input() clicks: number;
   @Input() timeLeft: number;
-
+  @Input() condition: boolean;
+  //condition: boolean=true;
   @Input() 
   set stage(stage:string){
     console.log(stage="finish");
@@ -18,11 +19,7 @@ export class LayoutStartComponent{
 
   @Output() onChanged = new EventEmitter<boolean>();
   @Output() onStartTimer = new EventEmitter<boolean>();
-/*
-  timeLeft: number = 10;
-  interval;
-  bool_interval: boolean = true;
-*/
+  
   change(increased:any) {
       this.onChanged.emit(increased);
      
@@ -31,21 +28,6 @@ export class LayoutStartComponent{
     this.onStartTimer.emit(bool_interval);
     console.log(500); 
 }
-/*
-  startTimer() {
-    this.timeLeft = 10;
-    this.bool_interval = true;
-    this.interval = setInterval(() => {
-
-      if(this.timeLeft > 0 && this.bool_interval) {
-        this.timeLeft--;
-      } else {
-        this.bool_interval = false;
-       
-      }
-    },1000)
-  }
-*/
  
 
   

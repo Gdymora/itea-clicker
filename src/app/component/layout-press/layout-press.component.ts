@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-layout-press',
   templateUrl: './layout-press.component.html',
   styleUrls: ['./layout-press.component.css']
 })
-export class LayoutPressComponent implements OnInit {
+export class LayoutPressComponent {
 
-  constructor() { }
+  @Output() onStartTimer = new EventEmitter<boolean>();
 
-  ngOnInit() {
-  }
+  startTimer(bool_interval:any) {
+    this.onStartTimer.emit(bool_interval);
+    console.log(500); 
+}
+
 
 }

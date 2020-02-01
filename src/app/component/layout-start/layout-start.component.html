@@ -1,10 +1,17 @@
 
 <div class = "row">  
-        <p>{{timeLeft}} Seconds Left....</p>
+        
         <div class = "col s12 center m12 l12">  
-                <p>{{clicks}}</p> <p>{{stage}}</p>
-                <button (click)="startTimer(true)">Start Timer</button>
-                <a (click)="change(true)" class="button25" tabindex="0">кнопка</a>
+                <p>{{timeLeft}} Seconds Left....</p>
+                <p>{{clicks}}</p> <p>{{stage}}</p>    
+
+                <button *ngIf="condition" (click)="change(true)" class="button25" tabindex="0">
+                        Нажимай быстрее</button>
+                        
+                <button *ngIf="!condition" (click)="change(false)" class="warning" tabindex="0">
+                                        Опасно нажимать</button>
+
+
         </div>  
      </div>  
 

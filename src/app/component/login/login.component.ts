@@ -7,20 +7,23 @@ import {DataService} from '../../service/data.service';
 })
 export class LoginComponent {
 
+ _lastName:string;
+
   @Input() stage: string;  
+  @Input() name: string;  
 
   @Output() stageLogin = new EventEmitter<boolean>();
-
  
+
   constructor(private dataService: DataService){}
 
-  lastName:string;
+ 
   
   addLastName() {
       //console.log(this.lastName);
       this.stageLogin.emit();
-      this.dataService.addDataName(this.lastName);
-     // console.log(this.dataService.getName());
+      this.dataService.addDataName(this._lastName);
+     //console.log(this.dataService.getName());
   }
   
 }
