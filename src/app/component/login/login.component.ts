@@ -18,8 +18,11 @@ export class LoginComponent {
   constructor(private dataService: DataService){}
 
   addLastName() {
+    //console.log(this.dataService.stage_servece);
       this.dataService.addDataName(this.lastName);
       this.stageLogin.emit();
+      //this.dataService.stage_servece ='game'
+      //console.log(this.dataService.stage_servece);
   }
   
 }

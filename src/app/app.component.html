@@ -14,13 +14,8 @@
    </div>
 </div>
 
-
-
-
-
-<app-login (stageLogin) = "stageLogin('press')" 
+<app-login (stageLogin) = "stageLogin()" 
    *ngIf="stage == 'start'"
-   [stage] = "stage"
 >
 
 </app-login>
@@ -39,7 +34,7 @@
 >
 </app-layout-start>
 
-<app-finish
+<app-finish (onFinish)="onFinish($event)"
 *ngIf="stage == 'finish'" 
 
 ></app-finish>

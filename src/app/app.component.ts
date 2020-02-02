@@ -8,19 +8,21 @@ import {DataService} from './service/data.service';
 export class AppComponent {
 
   lastName: string;
-  stage: string ;
+  stage:string;
   clicks:number = 0;
 
  constructor(private dataService: DataService) {
-    this.stage ='start'
+    this.dataService.stage_servece ='start'
+    this.stage = this.dataService.stage_servece;
     this.lastName = this.dataService.getName()==undefined ?'Гость':this.dataService.getName();
    }
 
 
    /*Принимает условие для отображения слоев*/
-  stageLogin(stage: string) {      
+  stageLogin() {      
       this.lastName = this.dataService.getName();
-      this.stage = stage;
+      this.dataService.stage_servece ='press'
+      this.stage = this.dataService.stage_servece;
   }
 
  /*Считает количество кликов*/
@@ -35,27 +37,37 @@ export class AppComponent {
  }
 
  /*Таймер*/
-  timeLeft: number = 10;
-  interval;
-  bool_interval: boolean = true;
+  timeLeft: number = 5;
+  interval; 
   condition: boolean = false;
 
-  onStartTimer(bool_interval:any) {
-    this.stage ='game'
-    this.timeLeft = 10;  
-    this.bool_interval = bool_interval;
-
+  onStartTimer() {
+    this.dataService.stage_servece ='game'
+    this.stage = this.dataService.stage_servece;
+   // this.timeLeft = 10;  
     this.interval = setInterval(() => {
-      if(this.timeLeft > 1 && this.bool_interval) {
-           this.condition = true 
-        this.timeLeft--;
+      if(this.timeLeft > 1) {
+           this.condition = true //используется в таймере для смены кнопки
+           this.timeLeft--;
+           this.dataService.stage_servece ='finish'
       } else {
-        this.bool_interval = false;
-        this.stage ='finish'
+        /*почему то все время срабатывает*/
+        this.stage = this.dataService.stage_servece;
         this.dataService.addDataClick(this.clicks);
-       
+        this.timeLeft = 10; 
+        clearInterval(this.interval)//обязательно очистить setInterval
+        //console.log(this.interval );
       }
     },1000)
+
+  }
+
+  onFinish(start:boolean){
+    this.clicks=0;
+    this.stage = this.dataService.stage_servece;
+    
+   // console.log(this.stage);
+    
   }
 
  

@@ -1,9 +1,15 @@
   
-  <button (click)="start(true)">
-    грати ще
-  </button> 
-  
-  <button (click)="start(false)">
-    повернутись на головну
-  </button> 
-  
+
+    <div class = "col s6 m6 l6">  
+       <button class="waves-effect waves-light btn-large pulse cyan" 
+       (click)="start(false)"><i class="material-icons left">autorenew</i>
+        грати
+      </button>
+    </div>
+
+    <div class = "col s6 m6 l6">  
+        <button class="waves-effect waves-light btn-large cyan right" (click)="start(true)">
+        <i class="material-icons right">dvr</i>
+        вийти
+     </button> 
+    </div>

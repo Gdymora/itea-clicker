@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+
 import {DataService} from '../../service/data.service';
 @Component({
   selector: 'app-finish',
@@ -9,9 +10,14 @@ export class FinishComponent implements OnInit {
 
   finishclick:any;
   resultclick:string;
+  arraystorage = []
+  nameuser:string;
 
-  constructor(private dataService: DataService) { }
-
+  constructor(private dataService: DataService) {
+   
+   }
+  
+/*Используем перехватчик для вывода пользователю сообщения */
   ngOnInit() {
     this.finishclick = this.dataService.getClick();
     if (this.finishclick <= 10){
@@ -19,17 +25,29 @@ export class FinishComponent implements OnInit {
     }  else if (this.finishclick > 10 && this.finishclick <= 15){
       this.resultclick = ' добре, та треба краще';
     } else if (this.finishclick > 15 && this.finishclick <= 20){
-      this.resultclick = ' дуже добре, це рекорд';
+      this.resultclick = ' дуже добре, але можна краще';
+    } else if (this.finishclick > 20 && this.finishclick <= 40){
+      this.resultclick = ' ого, це рекорд';
     } else {
       this.resultclick = ' так не буває, ти граешь не чесно. Та це жарт. Ти просто суперово клікаешь!';
     }
-    console.log(this.dataService.getClick());
-  }
+    this.nameuser = this.dataService.getName()
+    this.dataService.addList(this.dataService.getName(), this.finishclick)
+    this.arraystorage = this.dataService.getList()
 
-  onStart(start:boolean){
-    start==true?console.log(100):console.log(200);
+    //console.log(this.dataService.getList())
+   
     
   }
+/*Передаем событие кнопок полученых от дочернего компонента 
+                      finish-button родительскому компоненту app */
+  @Output() onFinish = new EventEmitter<boolean>(); 
+
+  onStart(start:boolean){
+    /*меняем в сервисе данные которые прочитает родительский компонент App после получения события*/
+     start==true ? location.reload(): this.dataService.stage_servece='press';
+    this.onFinish.emit(start);   
+      }
 
 
 

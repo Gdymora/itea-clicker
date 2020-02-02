@@ -2,14 +2,14 @@
 <div class = "row">  
         
         <div class = "col s12 center m12 l12">  
-                <p>{{timeLeft}} Seconds Left....</p>
-                <p>{{clicks}}</p> <p>{{stage}}</p>    
+                <h3>залишилось {{timeLeft}}</h3>
+                <h4> набрано {{clicks}} балів</h4>    
 
                 <button *ngIf="condition" (click)="change(true)" class="button25" tabindex="0">
-                        Нажимай быстрее</button>
+                        ТИСНИ ШВИДШЕ</button>
                         
                 <button *ngIf="!condition" (click)="change(false)" class="warning" tabindex="0">
-                                        Опасно нажимать</button>
+                                        НЕБЕЗПЕЧНО НЕ ТИСНИ</button>
 
 
         </div>  

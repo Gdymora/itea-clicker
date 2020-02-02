@@ -1,18 +1,48 @@
 
 <div class="row">
-        <div class="col s12 m12">
+  <div class="col s hiden m3">
+  </div>
+        <div class="col s12 m6">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Гра клікер</span>
-             Вы набрали  {{finishclick}} балів {{resultclick}}
+              {{nameuser}} ти набрав {{finishclick}} балів {{resultclick}}
             </div>
             <div class="card-action">
 
-              <app-finish-button
-                 (onStart)= "onStart($event)" 
-              ></app-finish-button
-                >   
-
-            </div>
+            </div> 
+            
           </div>
+           <app-finish-button  
+            (onStart)= "onStart($event)" 
+              ></app-finish-button>  
         </div>
+      </div>
+      <div class="row">
+        <div class="col s hiden m3">
+        </div>
+        <div class="col s12 m6">
+          <h5>Таблица рекордов</h5>
+          <table>
+            <thead>
+              <tr>
+                 <th>№ </th>
+                  <th>Name</th>
+                  <th>click</th>                
+              </tr>
+            </thead>
+    
+            <tbody >
+              <tr *ngFor = "let item of arraystorage | slice:0:10; let id = index">
+                <td>{{id}}</td>
+                <td>{{item.user}}</td>
+                <td>{{item.click}}</td>            
+              </tr>
+             
+            </tbody>
+          </table>
+
+        </div>
+        
+
+</div> 
