@@ -37,7 +37,7 @@ export class AppComponent {
  }
 
  /*Таймер*/
-  timeLeft: number = 5;
+  timeLeft: number = 10;
   interval; 
   condition: boolean = false;
 
