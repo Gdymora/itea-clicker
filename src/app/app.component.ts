@@ -13,18 +13,16 @@ export class AppComponent {
 
  constructor(private dataService: DataService) {
     this.stage ='start'
-    this.lastName = 'Гость';
-    //this.dataService.addDataName(this.lastName);
+    this.lastName = this.dataService.getName()==undefined ?'Гость':this.dataService.getName();
    }
 
 
    /*Принимает условие для отображения слоев*/
-  stageLogin(stage: string): string{
-      console.log(stage);   
+  stageLogin(stage: string) {      
       this.lastName = this.dataService.getName();
-
-    return this.stage = stage;
+      this.stage = stage;
   }
+
  /*Считает количество кликов*/
   onChanged(increased:any){
     increased==true?this.clicks++:this.clicks=this.clicks-6;
@@ -45,15 +43,11 @@ export class AppComponent {
   onStartTimer(bool_interval:any) {
     this.stage ='game'
     this.timeLeft = 10;  
-
     this.bool_interval = bool_interval;
 
     this.interval = setInterval(() => {
       if(this.timeLeft > 1 && this.bool_interval) {
-        
            this.condition = true 
-       
-
         this.timeLeft--;
       } else {
         this.bool_interval = false;

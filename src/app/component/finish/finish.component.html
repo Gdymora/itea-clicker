@@ -7,7 +7,12 @@
              Вы набрали  {{finishclick}} балів {{resultclick}}
             </div>
             <div class="card-action">
-              кнопки грати ще та повернутись на головну
+
+              <app-finish-button
+                 (onStart)= "onStart($event)" 
+              ></app-finish-button
+                >   
+
             </div>
           </div>
         </div>

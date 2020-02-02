@@ -5,20 +5,19 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  private name: string;
+ 
   private click: string;
 
-  getName(): string {
-    this.name = localStorage.getItem('name');
-    return this.name;
+ public getName(): string {
+       return localStorage.getItem('name');
   }
   
   addDataName(namegame: string){
-    this.name = namegame;
     localStorage.setItem('name', namegame);
+    console.log(namegame ); 
   }
 /*-------------------------------------------------*/
-  getClick(): string {
+  getClick(): any {
     this.click = localStorage.getItem('click');
     return this.click;
   }

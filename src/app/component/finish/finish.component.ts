@@ -21,9 +21,16 @@ export class FinishComponent implements OnInit {
     } else if (this.finishclick > 15 && this.finishclick <= 20){
       this.resultclick = ' дуже добре, це рекорд';
     } else {
-      this.resultclick = ' так не буває, ти граешь не чесно. Та це жарт. Ти просто суперова клікаешь!';
+      this.resultclick = ' так не буває, ти граешь не чесно. Та це жарт. Ти просто суперово клікаешь!';
     }
     console.log(this.dataService.getClick());
   }
+
+  onStart(start:boolean){
+    start==true?console.log(100):console.log(200);
+    
+  }
+
+
 
 }

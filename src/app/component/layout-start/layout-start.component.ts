@@ -11,12 +11,12 @@ export class LayoutStartComponent{
   @Input() clicks: number;
   @Input() timeLeft: number;
   @Input() condition: boolean;
-  //condition: boolean=true;
+ /*
   @Input() 
   set stage(stage:string){
     console.log(stage="finish");
   };
-
+*/
   @Output() onChanged = new EventEmitter<boolean>();
   @Output() onStartTimer = new EventEmitter<boolean>();
   
@@ -26,7 +26,6 @@ export class LayoutStartComponent{
   }
   startTimer(bool_interval:any) {
     this.onStartTimer.emit(bool_interval);
-    console.log(500); 
 }
  
 
