@@ -45,7 +45,7 @@ export class FinishComponent implements OnInit {
 
   onStart(start:boolean){
     /*меняем в сервисе данные которые прочитает родительский компонент App после получения события*/
-     start==true ? location.reload(): this.dataService.stage_servece='press';
+     if(start==true) this.dataService.stage_servece='start';
     this.onFinish.emit(start);   
       }
 

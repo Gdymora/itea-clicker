@@ -16,7 +16,6 @@ export class LayoutPressComponent {
   startTimer(bool_interval:any) {
     this.dataService.stage_servece='game'
     this.onStartTimer.emit(bool_interval);
-
     
 }
 

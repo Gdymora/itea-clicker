@@ -10,6 +10,8 @@ import { LayoutStartComponent } from './component/layout-start/layout-start.comp
 import { LayoutPressComponent } from './component/layout-press/layout-press.component';
 import {DataService} from './service/data.service';
 import { FinishButtonComponent } from './component/finish-button/finish-button.component';
+import { HomeComponent } from './component/home/home.component';
+import { NotFoundComponent } from './component/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { FinishButtonComponent } from './component/finish-button/finish-button.c
     FinishComponent,
     LayoutStartComponent,
     LayoutPressComponent,
-    FinishButtonComponent
+    FinishButtonComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
